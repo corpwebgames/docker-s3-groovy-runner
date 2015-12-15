@@ -8,8 +8,9 @@ RUN chmod +x /opt/init.sh \
     && curl -s get.gvmtool.net | bash \
     && echo "gvm_auto_answer=true" >> ~/.sdkman/etc/config \
     && /bin/bash -c "source /root/.sdkman/bin/sdkman-init.sh && sdk install groovy" \
-    && mkdir -p $HOME/.groovy/lib \
-    && ./init.sh
+    && mkdir -p $HOME/.groovy/lib
+
+RUN /bin/bash -c "source /root/.sdkman/bin/sdkman-init.sh && grape install 'com.amazonaws' 'aws-java-sdk' '1.10.40'"
 
 #COPY aws-java-sdk-1.10.37.jar $HOME/.groovy/lib/
 
