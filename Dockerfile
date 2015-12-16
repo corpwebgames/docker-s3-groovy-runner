@@ -1,27 +1,17 @@
-FROM dpatriot/docker-awscli-java8
+FROM dpatriot/docker-s3-runner
 MAINTAINER Shago Vyacheslav <v.shago@corpwebgames.com>
 
-#ADD run.sh /opt/
-COPY init.sh /opt/
-
-RUN chmod +x /opt/init.sh \
-    && curl -s get.gvmtool.net | bash \
+RUN curl -s get.gvmtool.net | bash \
     && echo "gvm_auto_answer=true" >> ~/.sdkman/etc/config \
     && /bin/bash -c "source /root/.sdkman/bin/sdkman-init.sh && sdk install groovy" \
     && mkdir -p $HOME/.groovy/lib
 
-RUN /bin/bash -c "source /root/.sdkman/bin/sdkman-init.sh && grape install 'com.amazonaws' 'aws-java-sdk' '1.10.40'"
+RUN /bin/bash -c "source /root/.sdkman/bin/sdkman-init.sh \
+	&& grape install 'com.amazonaws' 'aws-java-sdk' '1.10.40' \
+	&& grape install 'mysql' 'mysql-connector-java' '5.1.38'"
 
-#RUN /bin/bash -c "echo -e 'source /root/.sdkman/bin/sdkman-init.sh' > /etc/profile.d/sdkman-init.sh && chmod +x /etc/profile.d/sdkman-init.sh"
+#load non-grape libs
+RUN curl -o $HOME/.groovy/lib/RedshiftJDBC41-1.1.10.1010.jar https://s3.amazonaws.com/redshift-downloads/drivers/RedshiftJDBC41-1.1.10.1010.jar
 
 ENV GROOVY_HOME /root/.sdkman/candidates/groovy/current
 ENV PATH $GROOVY_HOME/bin:$PATH
-
-#COPY aws-java-sdk-1.10.37.jar $HOME/.groovy/lib/
-
-# Define working directory
-WORKDIR /opt
-
-#ENTRYPOINT ["./run.sh"]
-
-CMD [""]
