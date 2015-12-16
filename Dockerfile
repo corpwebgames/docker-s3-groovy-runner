@@ -12,6 +12,11 @@ RUN chmod +x /opt/init.sh \
 
 RUN /bin/bash -c "source /root/.sdkman/bin/sdkman-init.sh && grape install 'com.amazonaws' 'aws-java-sdk' '1.10.40'"
 
+#RUN /bin/bash -c "echo -e 'source /root/.sdkman/bin/sdkman-init.sh' > /etc/profile.d/sdkman-init.sh && chmod +x /etc/profile.d/sdkman-init.sh"
+
+ENV GROOVY_HOME /root/.sdkman/candidates/groovy/current
+ENV PATH $GROOVY_HOME/bin:$PATH
+
 #COPY aws-java-sdk-1.10.37.jar $HOME/.groovy/lib/
 
 # Define working directory
