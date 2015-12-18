@@ -13,5 +13,8 @@ RUN /bin/bash -c "source /root/.sdkman/bin/sdkman-init.sh \
 #load non-grape libs
 RUN curl -o $HOME/.groovy/lib/RedshiftJDBC41-1.1.10.1010.jar https://s3.amazonaws.com/redshift-downloads/drivers/RedshiftJDBC41-1.1.10.1010.jar
 
+#unload lib
+RUN rm -f /root/.sdkman/candidates/groovy/current/lib/servlet-api-2.4.jar
+
 ENV GROOVY_HOME /root/.sdkman/candidates/groovy/current
 ENV PATH $GROOVY_HOME/bin:$PATH
