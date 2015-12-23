@@ -1,4 +1,4 @@
-FROM dpatriot/docker-s3-runner
+FROM dpatriot/docker-s3-runner:1.1.1
 MAINTAINER Shago Vyacheslav <v.shago@corpwebgames.com>
 
 RUN curl -s get.gvmtool.net | bash \
