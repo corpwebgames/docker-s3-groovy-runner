@@ -1,7 +1,7 @@
 FROM dpatriot/docker-s3-runner:1.2.0
 MAINTAINER Shago Vyacheslav <v.shago@corpwebgames.com>
 
-RUN curl -s get.gvmtool.net | bash \
+RUN curl -s get.sdkman.io | bash \
     && echo "gvm_auto_answer=true" >> ~/.sdkman/etc/config \
     && /bin/bash -c "source /root/.sdkman/bin/sdkman-init.sh && sdk install groovy" \
     && mkdir -p $HOME/.groovy/lib
