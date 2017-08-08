@@ -1,6 +1,10 @@
 FROM dpatriot/docker-s3-runner:1.4.1
 MAINTAINER Shago Vyacheslav <v.shago@corpwebgames.com>
 
+RUN apt-get update \
+	&& apt-get-install -y zip \
+	&& rm -rf /var/lib/apt/lists/*
+
 RUN curl -s get.sdkman.io | bash \
     && echo "gvm_auto_answer=true" >> ~/.sdkman/etc/config \
     && /bin/bash -c "source /root/.sdkman/bin/sdkman-init.sh && sdk install groovy" \
