@@ -1,4 +1,4 @@
-FROM dpatriot/docker-s3-runner:1.4.0
+FROM dpatriot/docker-s3-runner:1.4.1
 MAINTAINER Shago Vyacheslav <v.shago@corpwebgames.com>
 
 RUN curl -s get.sdkman.io | bash \
@@ -7,7 +7,7 @@ RUN curl -s get.sdkman.io | bash \
     && mkdir -p $HOME/.groovy/lib
 
 RUN /bin/bash -c "source /root/.sdkman/bin/sdkman-init.sh \
-	&& grape install 'com.amazonaws' 'aws-java-sdk' '1.10.40' \
+	&& grape install 'com.amazonaws' 'aws-java-sdk' '1.11.172' \
 	&& grape install 'mysql' 'mysql-connector-java' '5.1.38'"
 
 #load non-grape libs
