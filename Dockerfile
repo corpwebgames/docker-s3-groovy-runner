@@ -14,6 +14,8 @@ RUN /bin/bash -c "source /root/.sdkman/bin/sdkman-init.sh \
 	&& grape install 'com.amazonaws' 'aws-java-sdk' '1.11.172' \
 	&& grape install 'mysql' 'mysql-connector-java' '5.1.38' \
 	&& grape install 'commons-io' 'commons-io' '2.5' \
+	&& grape install 'com.sparkjava' 'spark-core' '2.3' \
+	&& grape install 'org.codehaus.groovy.modules.http-builder' 'http-builder' '0.7.1' \
 	&& grape install 'ch.qos.logback' 'logback-classic' '1.2.3'"
 
 #load non-grape libs
