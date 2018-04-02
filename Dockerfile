@@ -24,9 +24,9 @@ RUN curl -o $HOME/.groovy/lib/RedshiftJDBC41-1.1.10.1010.jar https://s3.amazonaw
 #unload lib
 RUN rm -f /root/.sdkman/candidates/groovy/current/lib/servlet-api-2.4.jar
 
-ADD import-rds-ca.sh /opt/
+#ADD import-rds-ca.sh /opt/
 
-RUN chmod +x /opt/import-rds-ca.sh && /opt/import-rds-ca.sh
+#RUN chmod +x /opt/import-rds-ca.sh && /opt/import-rds-ca.sh
 
 ENV GROOVY_HOME /root/.sdkman/candidates/groovy/current
 ENV PATH $GROOVY_HOME/bin:$PATH
