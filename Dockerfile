@@ -12,6 +12,7 @@ RUN curl -s get.sdkman.io | bash \
 
 RUN /bin/bash -c "source /root/.sdkman/bin/sdkman-init.sh \
 	&& grape install 'com.amazonaws' 'aws-java-sdk' '1.11.172' \
+	&& grape install 'com.amazonaws' 'aws-java-sdk' '1.11.331' \
 	&& grape install 'mysql' 'mysql-connector-java' '5.1.38' \
 	&& grape install 'commons-io' 'commons-io' '2.5' \
 	&& grape install 'com.sparkjava' 'spark-core' '2.3' \
